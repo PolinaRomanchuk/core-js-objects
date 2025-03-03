@@ -56,9 +56,9 @@ function mergeObjects(objects) {
  *
  */
 function removeProperties(obj, keys) {
-  return Object.fromEntries(
-    Object.entries(obj).filter(([key]) => !keys.includes(key))
-  );
+  const newObj = { ...obj };
+  keys.forEach((key) => delete newObj[key]);
+  return newObj;
 }
 
 /**
